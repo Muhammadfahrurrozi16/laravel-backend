@@ -12,7 +12,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Posts</h1>
+                <h1>User Management</h1>
                 <div class="section-header-button">
                     <a href="features-post-create.html"
                         class="btn btn-primary">Add New</a>
@@ -25,9 +25,6 @@
             </div>
             <div class="section-body">
                 <h2 class="section-title">Posts</h2>
-                <p class="section-lead">
-                    You can manage all posts, such as editing, deleting and more.
-                </p>
 
                 <div class="row">
                     <div class="col-12">
