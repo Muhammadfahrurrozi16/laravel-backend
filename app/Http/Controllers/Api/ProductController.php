@@ -32,6 +32,7 @@ class ProductController extends Controller
             ]),
             'user_id' => 1,
         ]);
+        dd($product);
 
         return $product;
     }
@@ -43,11 +44,8 @@ class ProductController extends Controller
     {
         // return response()->json($product, 200);
         $product = Product::find($id);
-        if ($product) {
-            return response()->json($product, 200);
-        } else {
-            return response()->json(['message' => 'Product not found'], 404);
-        }
+        $product->load('user','category');
+        return new ProductResource($product);
     }
 
     /**
