@@ -14,17 +14,17 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $categoryId = $request->input('category_id');
-        $products = Product::when(
-            $categoryId,
-            fn ($query, $categoryId) => $query->categoryId($categoryId)
-        )->paginate();
-        return ProductResource::collection($products);
         // $categoryId = $request->input('category_id');
-        // $UserId = $request->input('user_id');
-        // $products = Product::where('category_id','LIKE','%'. $categoryId . '%')
-        //     ->where('user_id','LIKE','%'. $UserId . '%')->paginate()->load('category','user');
+        // $products = Product::when(
+        //     $categoryId,
+        //     fn ($query, $categoryId) => $query->categoryId($categoryId)
+        // )->paginate();
         // return ProductResource::collection($products);
+        $categoryId = $request->input('category_id');
+        $UserId = $request->input('user_id');
+        $products = Product::where('category_id','LIKE','%'. $categoryId . '%')
+            ->where('user_id','LIKE','%'. $UserId . '%')->paginate()->load('category','user');
+        return ProductResource::collection($products);
 
     }
 
