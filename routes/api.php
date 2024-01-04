@@ -36,3 +36,5 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('Products', ProductController::class);
 Route::apiResource('Banners', BannerController::class);
+Route::post('fcm-token', [AuthController::class, 'updateFcmToken'])
+    ->middleware('auth:sanctum');
